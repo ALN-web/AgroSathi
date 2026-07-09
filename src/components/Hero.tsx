@@ -2,8 +2,10 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export function Hero() {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -68,18 +70,18 @@ export function Hero() {
           className="max-w-[750px]"
         >
           <motion.h1 variants={itemVariants} className="text-[3.5rem] md:text-[5rem] font-bold text-white leading-[1.1] tracking-tight mb-6">
-            India’s AI Farming <br/>
-            Assistant For <br/>
-            <span className="text-[#dcf573]">Smarter Agriculture</span>
+            {t('home.heroTitle1')} <br/>
+            {t('home.heroTitle2')} <br/>
+            <span className="text-[#dcf573]">{t('home.heroTitle3')}</span>
           </motion.h1>
           
           <motion.p variants={itemVariants} className="text-lg md:text-xl text-white/95 leading-relaxed mb-10 max-w-[500px] font-normal drop-shadow-md">
-            AgroSathi uses AI and real-time insights to help farmers make the best decisions for higher yield, better profits, and sustainable farming.
+            {t('home.heroDesc')}
           </motion.p>
           
           <motion.div variants={itemVariants}>
             <Link to="/predict" className="bg-[#dcf573] hover:bg-[#cde466] text-black font-medium text-lg px-8 py-4 rounded-2xl inline-flex items-center gap-3 transition-transform hover:scale-105 shadow-xl">
-              Start Prediction
+              {t('home.heroBtnPrimary')}
               <ArrowRight className="w-5 h-5" />
             </Link>
           </motion.div>

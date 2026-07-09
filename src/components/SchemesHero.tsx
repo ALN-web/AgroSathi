@@ -6,7 +6,7 @@ export function SchemesHero() {
     <div className="relative min-h-[75vh] flex flex-col justify-center pt-32 pb-24 overflow-hidden">
       <div className="absolute inset-0 z-0 bg-[#0B2E1D]">
         <img 
-          src="/images/service_gov.png" 
+          src="/images/farmer.avif" 
           alt="Government Schemes" 
           className="w-full h-full object-cover"
         />

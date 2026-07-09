@@ -1,7 +1,10 @@
 import { Leaf, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-[#0a1f12] text-white pt-20 pb-8 border-t border-white/5">
       <div className="max-w-[1500px] mx-auto px-6">
@@ -10,11 +13,11 @@ export function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-6">
-              <Leaf className="w-8 h-8 text-brand-accent" />
+              <img src="/images/logo.png" alt="AgroSathi" className="h-10 w-auto object-contain" />
               <span className="text-2xl font-bold text-white tracking-tight">AgroSathi</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              The ultimate AI-powered agriculture platform helping farmers maximize yield, reduce risks, and build a sustainable future.
+              {t('footer.desc')}
             </p>
             <div className="flex items-center gap-4">
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-[#B8F24A] hover:text-[#0a1f12] transition-colors">
@@ -30,56 +33,58 @@ export function Footer() {
 
           {/* Links: Platform */}
           <div className="lg:col-span-1">
-            <h4 className="text-white font-bold mb-6">Platform</h4>
+            <h4 className="text-white font-bold mb-6">{t('footer.platform')}</h4>
             <ul className="space-y-4">
-              <li><Link to="/dashboard" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Dashboard</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Crop Prediction</Link></li>
-              <li><Link to="/schemes" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Government Schemes</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Weather Analysis</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Soil Health</Link></li>
+              <li><Link to="/dashboard" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('nav.dashboard')}</Link></li>
+              <li><Link to="/prediction" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.cropPrediction')}</Link></li>
+              <li><Link to="/schemes" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.govSchemes')}</Link></li>
+              <li><Link to="/market" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.marketPrice')}</Link></li>
+              <li><Link to="/weather" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.weatherAnalysis')}</Link></li>
+              <li><Link to="/soil" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.soilAnalysis')}</Link></li>
+              <li><Link to="/assistant" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.aiChatbot')}</Link></li>
             </ul>
           </div>
 
           {/* Links: Resources */}
           <div className="lg:col-span-1">
-            <h4 className="text-white font-bold mb-6">Resources</h4>
+            <h4 className="text-white font-bold mb-6">{t('footer.resources')}</h4>
             <ul className="space-y-4">
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Blog</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Help Center</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors flex items-center gap-1">API Documentation <ArrowUpRight className="w-3 h-3" /></Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Farmer Guide</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Download App</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.blog')}</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.helpCenter')}</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors flex items-center gap-1">{t('footer.links.apiDocs')} <ArrowUpRight className="w-3 h-3" /></Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.farmerGuide')}</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.downloadApp')}</Link></li>
             </ul>
           </div>
 
           {/* Links: Company */}
           <div className="lg:col-span-1">
-            <h4 className="text-white font-bold mb-6">Company</h4>
+            <h4 className="text-white font-bold mb-6">{t('footer.company')}</h4>
             <ul className="space-y-4">
-              <li><Link to="/about" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">About</Link></li>
-              <li><Link to="/contact" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Contact</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Privacy Policy</Link></li>
-              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">Terms & Conditions</Link></li>
+              <li><Link to="/about" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('nav.about')}</Link></li>
+              <li><Link to="/contact" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('nav.contact')}</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.privacyPolicy')}</Link></li>
+              <li><Link to="#" className="text-gray-400 hover:text-[#B8F24A] text-sm transition-colors">{t('footer.links.terms')}</Link></li>
             </ul>
           </div>
 
           {/* Newsletter */}
           <div className="lg:col-span-1">
-            <h4 className="text-white font-bold mb-6">Stay Updated</h4>
+            <h4 className="text-white font-bold mb-6">{t('footer.stayUpdated')}</h4>
             <p className="text-gray-400 text-sm leading-relaxed mb-4">
-              Subscribe to receive the latest AI agriculture updates, market intelligence, farming innovations, and product announcements.
+              {t('footer.subscribeDesc')}
             </p>
             <form className="flex flex-col gap-3">
               <input 
                 type="email" 
-                placeholder="Enter your email" 
+                placeholder={t('footer.emailPlaceholder')} 
                 className="bg-white/5 border border-white/10 text-white text-sm rounded-xl px-4 py-3 focus:outline-none focus:border-[#B8F24A] transition-colors"
               />
               <button 
                 type="button" 
                 className="bg-[#B8F24A] hover:bg-[#a5db40] text-[#0a1f12] font-bold text-sm px-4 py-3 rounded-xl transition-colors"
               >
-                Subscribe
+                {t('footer.subscribe')}
               </button>
             </form>
           </div>
@@ -88,9 +93,9 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">© 2026 AgroSathi. All Rights Reserved.</p>
+          <p className="text-gray-500 text-sm">{t('footer.rights')}</p>
           <p className="text-gray-500 text-sm">
-            Designed & Developed by <span className="text-white font-semibold">Anjankumar LN</span>.
+            {t('footer.designedBy')} <span className="text-white font-semibold">Anjankumar LN</span>.
           </p>
         </div>
       </div>
