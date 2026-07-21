@@ -25,7 +25,7 @@ export function ServicesGrid() {
     <section className="bg-white py-12 px-6">
       <div className="max-w-[1500px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {servicesConfig.map((service, i) => (
-          <motion.div 
+          <motion.div
             key={i}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export function ServicesGrid() {
                 {service.icon}
               </div>
             </div>
-            
+
             {/* Content side - Bottom */}
             <div className="p-6 flex flex-col flex-1">
               <h3 className="text-xl font-bold text-gray-900 mb-2">{t(`services.items.${service.key}.title`)}</h3>

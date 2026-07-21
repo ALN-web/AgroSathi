@@ -5,10 +5,38 @@ import { PredictionResultsCard } from '../components/PredictionResultsCard';
 import { PredictionAlternatives } from '../components/PredictionAlternatives';
 import { PredictionFeaturesStrip } from '../components/PredictionFeaturesStrip';
 import { Footer } from '../components/Footer';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function PredictionPage() {
+  const [predictionResult, setPredictionResult] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handlePredict = async (features: any) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await fetch('http://localhost:8010/api/crop-prediction/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(features),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setPredictionResult(data.data);
+      } else {
+        setError(data.error?.message || 'Prediction failed');
+      }
+    } catch (err) {
+      setError('Failed to connect to the prediction server');
+    } finally {
+      setIsLoading(false);
+    }
+  };
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -30,7 +58,8 @@ export default function PredictionPage() {
               viewport={{ once: true }}
               className="xl:col-span-5"
             >
-              <PredictionFormCard />
+              <PredictionFormCard onSubmit={handlePredict} isLoading={isLoading} />
+              {error && <p className="text-red-500 text-sm mt-4 text-center font-bold">{error}</p>}
             </motion.div>
             
             {/* Right side: Results */}
@@ -41,17 +70,17 @@ export default function PredictionPage() {
               transition={{ delay: 0.2 }}
               className="xl:col-span-7"
             >
-              <PredictionResultsCard />
+              <PredictionResultsCard result={predictionResult} />
             </motion.div>
           </div>
 
+          {/* Alternative Crops Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
           >
-            <PredictionAlternatives />
+            <PredictionAlternatives alternatives={predictionResult?.alternativeCrops} />
           </motion.div>
 
           <PredictionFeaturesStrip />

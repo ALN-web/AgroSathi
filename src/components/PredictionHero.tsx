@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion';
-import { Cpu, TrendingUp, Clock, Activity, Sprout } from 'lucide-react';
+import { Cpu, Clock, Activity, Sprout } from 'lucide-react';
 
 export function PredictionHero() {
   return (
     <div className="relative min-h-[60vh] flex flex-col justify-center pt-32 pb-48 overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0 bg-[#0B2E1D]">
-        <img 
-          src="/images/hero_drone.png" 
-          alt="Agriculture Field" 
+        <img
+          src="/images/hero_drone.png"
+          alt="Agriculture Field"
           className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0B2E1D] via-[#0B2E1D]/90 to-[#0B2E1D]/60"></div>
@@ -17,14 +17,14 @@ export function PredictionHero() {
 
       <div className="relative z-20 max-w-[1500px] mx-auto px-6 w-full flex flex-col xl:flex-row items-start xl:items-center justify-between gap-12">
         {/* Left Side: Text */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-[750px] w-full"
         >
           <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#134E36]/80 backdrop-blur-md border border-[#B8F24A]/30 text-[#B8F24A] font-semibold text-sm rounded-full mb-6 shadow-lg">
-            <Sprout className="w-4 h-4" /> AI Crop Prediction
+            <Sprout className="w-4 h-4" /> Crop Prediction
           </span>
           <h1 className="text-[3.5rem] md:text-[4rem] font-bold text-white leading-[1.1] tracking-tight mb-2">
             Predict the Best Crop
@@ -38,16 +38,15 @@ export function PredictionHero() {
         </motion.div>
 
         {/* Right Side: Feature Pills */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex flex-wrap gap-4 xl:justify-end xl:w-[600px]"
         >
-          <FeaturePill icon={<Cpu className="w-5 h-5" />} title="AI Powered" subtitle="ML Model" />
-          <FeaturePill icon={<Activity className="w-5 h-5 text-[#B8F24A]" />} title="95%+" subtitle="Prediction Accuracy" />
+          <FeaturePill icon={<Cpu className="w-5 h-5" />} title="ML model Powered" subtitle="Random Forest Model" />
+          <FeaturePill icon={<Activity className="w-5 h-5 text-[#B8F24A]" />} title="98%+" subtitle="Prediction Accuracy" />
           <FeaturePill icon={<Clock className="w-5 h-5" />} title="Real-time" subtitle="Data Analysis" />
-          <FeaturePill icon={<TrendingUp className="w-5 h-5" />} title="Profit" subtitle="Maximization" />
         </motion.div>
       </div>
     </div>

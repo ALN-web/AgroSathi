@@ -1,0 +1,178 @@
+{
+  "rice": {
+    "image": "/images/crop_prediction.png",
+    "scientificName": "Oryza sativa",
+    "season": "Kharif",
+    "category": "Cereal",
+    "color": "#e8d5a3",
+    "icon": "🌾"
+  },
+  "maize": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Zea mays",
+    "season": "Kharif / Rabi",
+    "category": "Cereal",
+    "color": "#f5e642",
+    "icon": "🌽"
+  },
+  "chickpea": {
+    "image": "/images/service_soil.png",
+    "scientificName": "Cicer arietinum",
+    "season": "Rabi",
+    "category": "Pulse",
+    "color": "#c9a84c",
+    "icon": "🫘"
+  },
+  "kidneybeans": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Phaseolus vulgaris",
+    "season": "Kharif",
+    "category": "Pulse",
+    "color": "#8b2e2e",
+    "icon": "🫘"
+  },
+  "pigeonpeas": {
+    "image": "/images/service_soil.png",
+    "scientificName": "Cajanus cajan",
+    "season": "Kharif",
+    "category": "Pulse",
+    "color": "#b5894f",
+    "icon": "🫘"
+  },
+  "mothbeans": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Vigna aconitifolia",
+    "season": "Kharif",
+    "category": "Pulse",
+    "color": "#a07850",
+    "icon": "🫘"
+  },
+  "mungbean": {
+    "image": "/images/service_soil.png",
+    "scientificName": "Vigna radiata",
+    "season": "Kharif / Zaid",
+    "category": "Pulse",
+    "color": "#6aaf4e",
+    "icon": "🫘"
+  },
+  "blackgram": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Vigna mungo",
+    "season": "Kharif",
+    "category": "Pulse",
+    "color": "#3a2e2e",
+    "icon": "🫘"
+  },
+  "lentil": {
+    "image": "/images/service_soil.png",
+    "scientificName": "Lens culinaris",
+    "season": "Rabi",
+    "category": "Pulse",
+    "color": "#b8864e",
+    "icon": "🫘"
+  },
+  "pomegranate": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Punica granatum",
+    "season": "Annual",
+    "category": "Fruit",
+    "color": "#c0392b",
+    "icon": "🍎"
+  },
+  "banana": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Musa spp.",
+    "season": "Annual",
+    "category": "Fruit",
+    "color": "#f7dc6f",
+    "icon": "🍌"
+  },
+  "mango": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Mangifera indica",
+    "season": "Summer",
+    "category": "Fruit",
+    "color": "#f39c12",
+    "icon": "🥭"
+  },
+  "grapes": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Vitis vinifera",
+    "season": "Annual",
+    "category": "Fruit",
+    "color": "#6c3483",
+    "icon": "🍇"
+  },
+  "watermelon": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Citrullus lanatus",
+    "season": "Summer / Zaid",
+    "category": "Fruit",
+    "color": "#27ae60",
+    "icon": "🍉"
+  },
+  "muskmelon": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Cucumis melo",
+    "season": "Summer / Zaid",
+    "category": "Fruit",
+    "color": "#e8c07d",
+    "icon": "🍈"
+  },
+  "apple": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Malus domestica",
+    "season": "Autumn",
+    "category": "Fruit",
+    "color": "#c0392b",
+    "icon": "🍏"
+  },
+  "orange": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Citrus sinensis",
+    "season": "Winter",
+    "category": "Fruit",
+    "color": "#e67e22",
+    "icon": "🍊"
+  },
+  "papaya": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Carica papaya",
+    "season": "Annual",
+    "category": "Fruit",
+    "color": "#f0a500",
+    "icon": "🍑"
+  },
+  "coconut": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Cocos nucifera",
+    "season": "Annual",
+    "category": "Plantation",
+    "color": "#7f5c3e",
+    "icon": "🥥"
+  },
+  "cotton": {
+    "image": "/images/service_drone.png",
+    "scientificName": "Gossypium hirsutum",
+    "season": "Kharif",
+    "category": "Fibre",
+    "color": "#f5f5f0",
+    "icon": "🌿"
+  },
+  "jute": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Corchorus olitorius",
+    "season": "Kharif",
+    "category": "Fibre",
+    "color": "#8B7355",
+    "icon": "🌿"
+  },
+  "coffee": {
+    "image": "/images/service_crop.png",
+    "scientificName": "Coffea arabica",
+    "season": "Annual",
+    "category": "Plantation",
+    "color": "#6f4e37",
+    "icon": "☕"
+  }
+}

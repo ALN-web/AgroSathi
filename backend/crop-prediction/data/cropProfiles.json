@@ -1,0 +1,441 @@
+{
+  "rice": {
+    "displayName": "Paddy (Rice)",
+    "kannadaName": "ಭತ್ತ",
+    "hindiName": "धान",
+    "scientificName": "Oryza sativa",
+    "season": "Kharif",
+    "category": "Cereal",
+    "growthDuration": {
+      "minDays": 120,
+      "maxDays": 150
+    },
+    "waterRequirement": {
+      "min": 1200,
+      "max": 1500,
+      "unit": "mm"
+    },
+    "image": "/images/crops/rice.jpg",
+    "icon": "rice.png"
+  },
+
+  "maize": {
+    "displayName": "Maize",
+    "kannadaName": "ಮೆಕ್ಕೆಜೋಳ",
+    "hindiName": "मक्का",
+    "scientificName": "Zea mays",
+    "season": "Kharif",
+    "category": "Cereal",
+    "growthDuration": {
+      "minDays": 90,
+      "maxDays": 120
+    },
+    "waterRequirement": {
+      "min": 500,
+      "max": 800,
+      "unit": "mm"
+    },
+    "image": "/images/crops/maize.jpg",
+    "icon": "maize.png"
+  },
+
+  "chickpea": {
+    "displayName": "Chickpea",
+    "kannadaName": "ಕಡಲೆ",
+    "hindiName": "चना",
+    "scientificName": "Cicer arietinum",
+    "season": "Rabi",
+    "category": "Pulse",
+    "growthDuration": {
+      "minDays": 90,
+      "maxDays": 120
+    },
+    "waterRequirement": {
+      "min": 300,
+      "max": 500,
+      "unit": "mm"
+    },
+    "image": "/images/crops/chickpea.jpg",
+    "icon": "chickpea.png"
+  },
+
+  "kidneybeans": {
+    "displayName": "Kidney Beans",
+    "kannadaName": "ರಾಜ್ಮಾ",
+    "hindiName": "राजमा",
+    "scientificName": "Phaseolus vulgaris",
+    "season": "Rabi",
+    "category": "Pulse",
+    "growthDuration": {
+      "minDays": 90,
+      "maxDays": 120
+    },
+    "waterRequirement": {
+      "min": 400,
+      "max": 600,
+      "unit": "mm"
+    },
+    "image": "/images/crops/kidneybeans.jpg",
+    "icon": "kidneybeans.png"
+  },
+
+  "pigeonpeas": {
+    "displayName": "Pigeon Peas",
+    "kannadaName": "ತೊಗರಿ",
+    "hindiName": "अरहर",
+    "scientificName": "Cajanus cajan",
+    "season": "Kharif",
+    "category": "Pulse",
+    "growthDuration": {
+      "minDays": 150,
+      "maxDays": 240
+    },
+    "waterRequirement": {
+      "min": 600,
+      "max": 1000,
+      "unit": "mm"
+    },
+    "image": "/images/crops/pigeonpeas.jpg",
+    "icon": "pigeonpeas.png"
+  },
+
+  "mothbeans": {
+    "displayName": "Moth Beans",
+    "kannadaName": "ಮತ್ ಕಾಳು",
+    "hindiName": "मटकी",
+    "scientificName": "Vigna aconitifolia",
+    "season": "Kharif",
+    "category": "Pulse",
+    "growthDuration": {
+      "minDays": 75,
+      "maxDays": 90
+    },
+    "waterRequirement": {
+      "min": 250,
+      "max": 350,
+      "unit": "mm"
+    },
+    "image": "/images/crops/mothbeans.jpg",
+    "icon": "mothbeans.png"
+  },
+
+  "mungbeans": {
+    "displayName": "Green Gram",
+    "kannadaName": "ಹೆಸರುಕಾಳು",
+    "hindiName": "मूंग",
+    "scientificName": "Vigna radiata",
+    "season": "Kharif",
+    "category": "Pulse",
+    "growthDuration": {
+      "minDays": 60,
+      "maxDays": 75
+    },
+    "waterRequirement": {
+      "min": 300,
+      "max": 450,
+      "unit": "mm"
+    },
+    "image": "/images/crops/mungbeans.jpg",
+    "icon": "mungbeans.png"
+  },
+
+  "blackgram": {
+    "displayName": "Black Gram",
+    "kannadaName": "ಉದ್ದು",
+    "hindiName": "उड़द",
+    "scientificName": "Vigna mungo",
+    "season": "Kharif",
+    "category": "Pulse",
+    "growthDuration": {
+      "minDays": 80,
+      "maxDays": 100
+    },
+    "waterRequirement": {
+      "min": 350,
+      "max": 500,
+      "unit": "mm"
+    },
+    "image": "/images/crops/blackgram.jpg",
+    "icon": "blackgram.png"
+  },
+
+  "lentil": {
+    "displayName": "Lentil",
+    "kannadaName": "ಮಸೂರು",
+    "hindiName": "मसूर",
+    "scientificName": "Lens culinaris",
+    "season": "Rabi",
+    "category": "Pulse",
+    "growthDuration": {
+      "minDays": 100,
+      "maxDays": 120
+    },
+    "waterRequirement": {
+      "min": 300,
+      "max": 450,
+      "unit": "mm"
+    },
+    "image": "/images/crops/lentil.jpg",
+    "icon": "lentil.png"
+  },
+
+  "pomegranate": {
+    "displayName": "Pomegranate",
+    "kannadaName": "ದಾಳಿಂಬೆ",
+    "hindiName": "अनार",
+    "scientificName": "Punica granatum",
+    "season": "Year Round",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 150,
+      "maxDays": 180
+    },
+    "waterRequirement": {
+      "min": 500,
+      "max": 800,
+      "unit": "mm"
+    },
+    "image": "/images/crops/pomegranate.jpg",
+    "icon": "pomegranate.png"
+  },
+
+  "banana": {
+    "displayName": "Banana",
+    "kannadaName": "ಬಾಳೆ",
+    "hindiName": "केला",
+    "scientificName": "Musa paradisiaca",
+    "season": "Year Round",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 300,
+      "maxDays": 360
+    },
+    "waterRequirement": {
+      "min": 1200,
+      "max": 2200,
+      "unit": "mm"
+    },
+    "image": "/images/crops/banana.jpg",
+    "icon": "banana.png"
+  },
+
+  "mango": {
+    "displayName": "Mango",
+    "kannadaName": "ಮಾವು",
+    "hindiName": "आम",
+    "scientificName": "Mangifera indica",
+    "season": "Summer",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 120,
+      "maxDays": 150
+    },
+    "waterRequirement": {
+      "min": 700,
+      "max": 1200,
+      "unit": "mm"
+    },
+    "image": "/images/crops/mango.jpg",
+    "icon": "mango.png"
+  },
+
+  "grapes": {
+    "displayName": "Grapes",
+    "kannadaName": "ದ್ರಾಕ್ಷಿ",
+    "hindiName": "अंगूर",
+    "scientificName": "Vitis vinifera",
+    "season": "Winter",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 120,
+      "maxDays": 180
+    },
+    "waterRequirement": {
+      "min": 500,
+      "max": 700,
+      "unit": "mm"
+    },
+    "image": "/images/crops/grapes.jpg",
+    "icon": "grapes.png"
+  },
+
+  "watermelon": {
+    "displayName": "Watermelon",
+    "kannadaName": "ಕಲ್ಲಂಗಡಿ",
+    "hindiName": "तरबूज",
+    "scientificName": "Citrullus lanatus",
+    "season": "Summer",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 80,
+      "maxDays": 100
+    },
+    "waterRequirement": {
+      "min": 400,
+      "max": 600,
+      "unit": "mm"
+    },
+    "image": "/images/crops/watermelon.jpg",
+    "icon": "watermelon.png"
+  },
+
+  "muskmelon": {
+    "displayName": "Muskmelon",
+    "kannadaName": "ಕರಬೂಜ",
+    "hindiName": "खरबूजा",
+    "scientificName": "Cucumis melo",
+    "season": "Summer",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 75,
+      "maxDays": 90
+    },
+    "waterRequirement": {
+      "min": 350,
+      "max": 550,
+      "unit": "mm"
+    },
+    "image": "/images/crops/muskmelon.jpg",
+    "icon": "muskmelon.png"
+  },
+
+  "apple": {
+    "displayName": "Apple",
+    "kannadaName": "ಸೇಬು",
+    "hindiName": "सेब",
+    "scientificName": "Malus domestica",
+    "season": "Autumn",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 150,
+      "maxDays": 180
+    },
+    "waterRequirement": {
+      "min": 700,
+      "max": 1250,
+      "unit": "mm"
+    },
+    "image": "/images/crops/apple.jpg",
+    "icon": "apple.png"
+  },
+
+  "orange": {
+    "displayName": "Orange",
+    "kannadaName": "ಕಿತ್ತಳೆ",
+    "hindiName": "संतरा",
+    "scientificName": "Citrus sinensis",
+    "season": "Winter",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 180,
+      "maxDays": 240
+    },
+    "waterRequirement": {
+      "min": 900,
+      "max": 1200,
+      "unit": "mm"
+    },
+    "image": "/images/crops/orange.jpg",
+    "icon": "orange.png"
+  },
+
+  "papaya": {
+    "displayName": "Papaya",
+    "kannadaName": "ಪಪ್ಪಾಯಿ",
+    "hindiName": "पपीता",
+    "scientificName": "Carica papaya",
+    "season": "Year Round",
+    "category": "Fruit",
+    "growthDuration": {
+      "minDays": 270,
+      "maxDays": 330
+    },
+    "waterRequirement": {
+      "min": 1000,
+      "max": 1800,
+      "unit": "mm"
+    },
+    "image": "/images/crops/papaya.jpg",
+    "icon": "papaya.png"
+  },
+
+  "coconut": {
+    "displayName": "Coconut",
+    "kannadaName": "ತೆಂಗು",
+    "hindiName": "नारियल",
+    "scientificName": "Cocos nucifera",
+    "season": "Year Round",
+    "category": "Plantation",
+    "growthDuration": {
+      "minDays": 365,
+      "maxDays": 365
+    },
+    "waterRequirement": {
+      "min": 1200,
+      "max": 2000,
+      "unit": "mm"
+    },
+    "image": "/images/crops/coconut.jpg",
+    "icon": "coconut.png"
+  },
+
+  "cotton": {
+    "displayName": "Cotton",
+    "kannadaName": "ಹತ್ತಿ",
+    "hindiName": "कपास",
+    "scientificName": "Gossypium hirsutum",
+    "season": "Kharif",
+    "category": "Fiber",
+    "growthDuration": {
+      "minDays": 150,
+      "maxDays": 180
+    },
+    "waterRequirement": {
+      "min": 700,
+      "max": 1300,
+      "unit": "mm"
+    },
+    "image": "/images/crops/cotton.jpg",
+    "icon": "cotton.png"
+  },
+
+  "jute": {
+    "displayName": "Jute",
+    "kannadaName": "ಸೆಣಬು",
+    "hindiName": "जूट",
+    "scientificName": "Corchorus olitorius",
+    "season": "Kharif",
+    "category": "Fiber",
+    "growthDuration": {
+      "minDays": 120,
+      "maxDays": 150
+    },
+    "waterRequirement": {
+      "min": 1500,
+      "max": 2500,
+      "unit": "mm"
+    },
+    "image": "/images/crops/jute.jpg",
+    "icon": "jute.png"
+  },
+
+  "coffee": {
+    "displayName": "Coffee",
+    "kannadaName": "ಕಾಫಿ",
+    "hindiName": "कॉफी",
+    "scientificName": "Coffea arabica",
+    "season": "Year Round",
+    "category": "Plantation",
+    "growthDuration": {
+      "minDays": 180,
+      "maxDays": 240
+    },
+    "waterRequirement": {
+      "min": 1200,
+      "max": 2200,
+      "unit": "mm"
+    },
+    "image": "/images/crops/coffee.jpg",
+    "icon": "coffee.png"
+  }
+}
