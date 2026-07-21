@@ -1,49 +1,43 @@
-import { FileText } from 'lucide-react';
 
-export function PredictionAlternatives() {
+
+export function PredictionAlternatives({ alternatives }: { alternatives?: any[] }) {
   return (
-    <div className="flex flex-col lg:flex-row gap-8 mb-12">
-      
-      {/* Left: Alternative Crops */}
-      <div className="flex-1">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <h3 className="text-xl font-bold text-gray-900">Alternative Crop Suggestions</h3>
-            <p className="text-gray-500 text-sm">Other crops that can also grow well in your field</p>
-          </div>
-          <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500">
-            Based on Suitability Score 
-            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
-          </div>
+    <div className="mb-12">
+      <div className="flex items-center justify-between mb-4">
+        <div>
+          <h3 className="text-xl font-bold text-gray-900">Alternative Crop Suggestions</h3>
+          <p className="text-gray-500 text-sm">Other crops that can also grow well in your field</p>
         </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-          <AltCropCard name="Maize" score={82} yieldVal="48.7 Quintal/Ha" profit="₹ 62,300/Ha" img="/images/service_crop.png" />
-          <AltCropCard name="Groundnut" score={78} yieldVal="32.5 Quintal/Ha" profit="₹ 55,200/Ha" img="/images/service_soil.png" />
-          <AltCropCard name="Soybean" score={75} yieldVal="28.9 Quintal/Ha" profit="₹ 48,900/Ha" img="/images/crop_prediction.png" />
-          <AltCropCard name="Cotton" score={72} yieldVal="18.4 Quintal/Ha" profit="₹ 45,100/Ha" img="/images/service_drone.png" />
+        <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500">
+          Based on Suitability Score 
+          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
         </div>
       </div>
 
-      {/* Right: Report Card */}
-      <div className="w-full lg:w-[320px] bg-white rounded-3xl p-6 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-gray-100 flex flex-col items-center text-center justify-center">
-        <div className="w-14 h-14 rounded-full bg-[#f4fbe9] text-brand flex items-center justify-center mb-4">
-          <FileText className="w-7 h-7" />
-        </div>
-        <h4 className="text-lg font-bold text-gray-900 mb-2">View Detailed Analysis</h4>
-        <p className="text-gray-500 text-xs leading-relaxed mb-6">
-          Get comprehensive analysis report with charts and recommendations
-        </p>
-        <button className="w-full bg-[#65b23d] hover:bg-[#589c35] text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md">
-          Generate Report
-        </button>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {alternatives && alternatives.length > 0 ? (
+          alternatives.map((alt, idx) => (
+            <AltCropCard 
+              key={idx}
+              name={alt.crop} 
+              score={typeof alt.score === 'number' ? alt.score : parseInt(alt.score) || 0} 
+              img={alt.image} 
+            />
+          ))
+        ) : (
+          <>
+            <AltCropCard name="Maize" score={82} img="/images/service_crop.png" />
+            <AltCropCard name="Groundnut" score={78} img="/images/service_soil.png" />
+            <AltCropCard name="Soybean" score={75} img="/images/crop_prediction.png" />
+            <AltCropCard name="Cotton" score={72} img="/images/service_drone.png" />
+          </>
+        )}
       </div>
-
     </div>
   );
 }
 
-function AltCropCard({ name, score, yieldVal, profit, img }: { name: string, score: number, yieldVal: string, profit: string, img: string }) {
+function AltCropCard({ name, score, img }: { name: string, score: number, img: string }) {
   return (
     <div className="bg-white rounded-2xl p-4 shadow-[0_2px_15px_rgb(0,0,0,0.03)] border border-gray-100 flex gap-4 items-center">
       <div className="w-16 h-20 rounded-lg overflow-hidden flex-shrink-0">
@@ -76,14 +70,6 @@ function AltCropCard({ name, score, yieldVal, profit, img }: { name: string, sco
         <div className="space-y-1">
           <div className="flex justify-between text-[10px]">
             <span className="text-gray-500">Suitability Score</span>
-          </div>
-          <div className="flex justify-between text-[10px]">
-            <span className="text-gray-500">Expected Yield</span>
-            <span className="font-bold text-gray-900 truncate pl-2">{yieldVal}</span>
-          </div>
-          <div className="flex justify-between text-[10px]">
-            <span className="text-gray-500">Profit</span>
-            <span className="font-bold text-gray-900 truncate pl-2">{profit}</span>
           </div>
         </div>
       </div>

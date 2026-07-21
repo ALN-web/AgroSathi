@@ -1,0 +1,44 @@
+{
+  "name": "@agrosathi/crop-prediction",
+  "version": "1.0.0",
+  "description": "Isolated AI Crop Prediction service for AgroSathi — accepts N, P, K, Temperature, Humidity, pH, Rainfall",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint . --ext .ts"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "@types/pdfkit": "^0.17.6",
+    "axios": "^1.6.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "helmet": "^7.1.0",
+    "joi": "^17.12.2",
+    "multer": "^1.4.5-lts.1",
+    "pdfkit": "^0.19.1",
+    "uuid": "^9.0.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.11.24",
+    "@types/uuid": "^9.0.7",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "python": ">=3.10.0"
+  }
+}

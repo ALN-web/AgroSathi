@@ -1,0 +1,13 @@
+node_modules/
+dist/
+logs/
+temp/
+uploads/
+responses/
+.env
+*.pkl
+*.joblib
+__pycache__/
+*.pyc
+.pytest_cache/
+coverage/
