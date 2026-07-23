@@ -28,6 +28,8 @@ export default function PredictionPage() {
       const data = await response.json();
       if (data.success) {
         setPredictionResult(data.data);
+        // Bridge: save for FloatingAssistant to explain this prediction
+        sessionStorage.setItem('agrosaathi_last_prediction', JSON.stringify(data.data));
       } else {
         setError(data.error?.message || 'Prediction failed');
       }

@@ -1,0 +1,36 @@
+{
+  "projectName": "AgroSaathi",
+  "description": "An AI-powered Precision Agriculture platform.",
+  "availableModules": [
+    "Crop Prediction",
+    "Market Price Prediction",
+    "Weather Analysis",
+    "Soil Analysis",
+    "Government Schemes",
+    "Drone & Satellite Insights",
+    "Analytics Dashboard"
+  ],
+  "languageSupport": [
+    "English",
+    "Hindi",
+    "Other regional Indian languages"
+  ],
+  "howItWorks": {
+    "cropPrediction": "It uses machine learning models and historical data, along with weather and soil parameters, to recommend the most suitable crops for a specific region.",
+    "soilAnalysis": "It analyzes NPK values, pH levels, and moisture content to provide insights on soil health and suggest fertilizers or soil amendments."
+  },
+  "frequentlyAskedQuestions": [
+    {
+      "question": "What is AgroSaathi?",
+      "answer": "AgroSaathi is an advanced AI-powered assistant and platform designed to help farmers with crop prediction, weather forecasting, and market insights."
+    },
+    {
+      "question": "How can I access government schemes?",
+      "answer": "You can view the latest agricultural government schemes and subsidies in the 'Government Schemes' module of the platform."
+    },
+    {
+      "question": "What can this website do?",
+      "answer": "This website provides crop recommendations, predicts market prices, analyzes weather and soil health, highlights government schemes, and offers an AI assistant for farming-related queries."
+    }
+  ]
+}

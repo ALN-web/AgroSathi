@@ -1,6 +1,19 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sprout, X, Leaf } from 'lucide-react';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+
+const SUGGESTIONS = [
+  "🌾 Best crop for black soil",
+  "🌦 Weather Analysis",
+  "🧪 Soil Health Tips",
+  "🏛 Government Schemes",
+  "💧 Water Saving Techniques",
+  "🌱 Organic Farming",
+  "🐛 Pest Control",
+  "📈 Market Price Prediction"
+];
 
 export default function FloatingAssistant() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,6 +23,7 @@ export default function FloatingAssistant() {
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const conversationIdRef = useRef(Math.random().toString(36).substring(2, 15));
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -19,22 +33,65 @@ export default function FloatingAssistant() {
     scrollToBottom();
   }, [messages, isTyping]);
 
-  const handleSend = () => {
-    if (!inputValue.trim()) return;
+  const handleSend = async (text?: string) => {
+    const messageText = typeof text === 'string' ? text : inputValue;
+    if (!messageText.trim()) return;
 
-    const userMessage = { id: Date.now(), type: 'user', text: inputValue };
+    const userMessage = { id: Date.now(), type: 'user', text: messageText };
     setMessages(prev => [...prev, userMessage]);
-    setInputValue('');
+    if (typeof text !== 'string') {
+      setInputValue('');
+    }
     setIsTyping(true);
 
-    // Mock bot response
-    setTimeout(() => {
-      setIsTyping(false);
+    try {
+      // Read any existing crop prediction from session (set by PredictionPage)
+      let lastPrediction: any = null;
+      try {
+        const stored = sessionStorage.getItem('agrosaathi_last_prediction');
+        if (stored) lastPrediction = JSON.parse(stored);
+      } catch (_) { /* ignore */ }
+
+      const res = await fetch('http://localhost:5001/api/agri-assistant/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          message: messageText, 
+          conversationId: conversationIdRef.current,
+          ...(lastPrediction ? { lastPrediction } : {})
+        })
+      });
+      const data = await res.json();
+      
       setMessages(prev => [
         ...prev, 
-        { id: Date.now(), type: 'bot', text: 'I understand. Let me analyze that for you.' }
+        { id: Date.now(), type: 'bot', text: data.reply || "Sorry, I couldn't process that." }
       ]);
-    }, 1500);
+    } catch (error) {
+      console.error(error);
+      setMessages(prev => [
+        ...prev, 
+        { id: Date.now(), type: 'bot', text: 'Sorry, there was an error connecting to the server.' }
+      ]);
+    } finally {
+      setIsTyping(false);
+    }
+  };
+
+  const handleClose = async () => {
+    setIsOpen(false);
+    try {
+      await fetch(`http://localhost:5001/api/agri-assistant/chat/${conversationIdRef.current}`, {
+        method: 'DELETE'
+      });
+    } catch (e) {
+      console.error(e);
+    }
+    // Reset conversation id and messages for next open
+    conversationIdRef.current = Math.random().toString(36).substring(2, 15);
+    setTimeout(() => {
+      setMessages([{ id: 1, type: 'bot', text: 'Hello! I am AgroSaathi AI. How can I help you with your farming needs today?' }]);
+    }, 500); // wait for exit animation
   };
 
   return (
@@ -95,7 +152,7 @@ export default function FloatingAssistant() {
                 </div>
               </div>
               <button 
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className="text-brand-light hover:text-white transition-colors p-1.5 rounded-full hover:bg-white/10"
               >
                 <X size={20} />
@@ -116,7 +173,31 @@ export default function FloatingAssistant() {
                         : 'bg-brand text-white rounded-tl-sm'
                     }`}
                   >
+                  {msg.type === 'user' ? (
                     <p className="text-[15px] leading-relaxed">{msg.text}</p>
+                  ) : (
+                    <div className="text-[14px] leading-relaxed markdown-body">
+                      <ReactMarkdown
+                        remarkPlugins={[remarkGfm]}
+                        components={{
+                          h1: ({node, ...props}) => <h1 className="text-base font-bold mt-2 mb-1 text-brand-accent" {...props} />,
+                          h2: ({node, ...props}) => <h2 className="text-sm font-bold mt-2 mb-1 text-brand-accent border-b border-white/20 pb-0.5" {...props} />,
+                          h3: ({node, ...props}) => <h3 className="text-sm font-semibold mt-1.5 mb-0.5 text-brand-accent" {...props} />,
+                          p:  ({node, ...props}) => <p className="mb-1 last:mb-0" {...props} />,
+                          ul: ({node, ...props}) => <ul className="list-disc list-inside space-y-0.5 my-1 pl-1" {...props} />,
+                          ol: ({node, ...props}) => <ol className="list-decimal list-inside space-y-0.5 my-1 pl-1" {...props} />,
+                          li: ({node, ...props}) => <li className="text-[13.5px]" {...props} />,
+                          strong: ({node, ...props}) => <strong className="font-semibold text-brand-accent" {...props} />,
+                          em: ({node, ...props}) => <em className="italic opacity-90" {...props} />,
+                          hr: ({node, ...props}) => <hr className="border-white/20 my-2" {...props} />,
+                          code: ({node, ...props}) => <code className="bg-white/10 rounded px-1 py-0.5 text-[12px] font-mono" {...props} />,
+                          blockquote: ({node, ...props}) => <blockquote className="border-l-2 border-brand-accent pl-2 my-1 opacity-80" {...props} />,
+                        }}
+                      >
+                        {msg.text}
+                      </ReactMarkdown>
+                    </div>
+                  )}
                   </div>
                 </div>
               ))}
@@ -133,6 +214,28 @@ export default function FloatingAssistant() {
               <div ref={messagesEndRef} className="h-2" />
             </div>
 
+            {/* Quick Suggestions */}
+            <div 
+              className="px-3 sm:px-4 py-2.5 bg-white/90 backdrop-blur-sm shrink-0 border-t border-gray-100 flex gap-2 overflow-x-auto"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              <style>{`
+                .suggestions-container::-webkit-scrollbar { display: none; }
+              `}</style>
+              <div className="flex gap-2 suggestions-container overflow-x-auto w-full">
+                {SUGGESTIONS.map((suggestion, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleSend(suggestion)}
+                    disabled={isTyping}
+                    className="whitespace-nowrap px-3.5 py-1.5 bg-brand-light/50 hover:bg-brand-light text-brand-dark text-[13px] font-medium rounded-full border border-brand/20 transition-colors shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {suggestion}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Input Area */}
             <div className="p-3 sm:p-4 bg-white/90 backdrop-blur-sm border-t border-gray-100 shrink-0">
               <div className="flex items-center space-x-2">
@@ -145,7 +248,7 @@ export default function FloatingAssistant() {
                   className="flex-1 bg-gray-50/80 text-gray-800 text-[15px] border border-gray-100 focus:border-brand-light focus:bg-white focus:ring-2 focus:ring-brand-light/50 rounded-full px-5 py-3 outline-none transition-all placeholder:text-gray-400"
                 />
                 <button 
-                  onClick={handleSend}
+                  onClick={() => handleSend()}
                   disabled={!inputValue.trim() || isTyping}
                   className="bg-brand text-brand-accent p-3 rounded-full hover:bg-brand-dark transition-colors disabled:opacity-50 disabled:hover:bg-brand disabled:cursor-not-allowed shadow-sm flex-shrink-0 group"
                 >
