@@ -11,6 +11,7 @@ export type IntentType =
   | 'crop_explanation'
   | 'soil_analysis'
   | 'weather'
+  | 'eligibility_explanation'
   | 'government_schemes'
   | 'market_prediction'
   | 'crop_information'
@@ -65,6 +66,15 @@ const INTENT_RULES: Array<{ intent: IntentType; patterns: RegExp[] }> = [
       /\b(weather|forecast|temperature|humidity|rainfall|rain|climate|monsoon|wind|storm|drought)\b/i,
       /\b(will it rain|weather today|weather this week|weather analysis)\b/i,
       /\b(celsius|fahrenheit|humidity|precipitation|cloud|sunny)\b/i,
+    ],
+  },
+  {
+    intent: 'eligibility_explanation',
+    patterns: [
+      /\b(am i eligible|my eligibility|check my eligibility|can i get|do i qualify)\b/i,
+      /\b(explain (my )?eligibility)\b/i,
+      /\b(why am i (not )?eligible)\b/i,
+      /\b(eligibility (result|status))\b/i,
     ],
   },
   {

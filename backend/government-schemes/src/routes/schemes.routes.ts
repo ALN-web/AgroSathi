@@ -12,12 +12,31 @@
  * All routes are prefixed with /api/government-schemes by server.ts.
  */
 
-import { Router } from 'express';
+import { Router, Request, Response } from 'express';
 import { schemesController } from '../controllers/schemes.controller';
 import { validateQuery } from '../middleware/validate.middleware';
 import { listSchemesSchema, searchSchemesSchema } from '../schemas/schemes.schema';
+import { auditGovUrl } from '../utils/url.util';
 
 export const schemesRouter = Router();
+
+// ── URL Safety Validation utility route ──────────────────────────────────────
+
+/**
+ * GET /api/government-schemes/utils/validate-url?url=...
+ *
+ * Validates whether a URL is a safe, officially recognised government domain.
+ * Returns the full UrlValidationResult with validity flag and rejection reason.
+ */
+schemesRouter.get('/utils/validate-url', (req: Request, res: Response) => {
+  const url = req.query.url as string;
+  if (!url) {
+    res.status(400).json({ success: false, error: 'Query parameter "url" is required.' });
+    return;
+  }
+  const result = auditGovUrl(url);
+  res.status(200).json({ success: true, data: result });
+});
 
 // ── Static routes (must precede /:id) ───────────────────────────────────────
 
@@ -39,6 +58,21 @@ schemesRouter.get(
  * Returns only featured, active schemes.
  */
 schemesRouter.get('/featured', schemesController.getFeaturedSchemes);
+
+/**
+ * GET /api/government-schemes/statistics
+ *
+ * Returns live-computed hero statistics derived directly from governmentSchemes.json.
+ * Auto-updates whenever the JSON file is updated.
+ */
+schemesRouter.get('/statistics', schemesController.getStatistics);
+
+/**
+ * GET /api/government-schemes/recommendations?crop=...
+ * 
+ * Returns scheme recommendations tailored for a specific crop.
+ */
+schemesRouter.get('/recommendations', schemesController.getRecommendationsForCrop);
 
 /**
  * GET /api/government-schemes/meta/categories
@@ -69,6 +103,13 @@ schemesRouter.get(
 );
 
 // ── Dynamic ID route (must be last) ─────────────────────────────────────────
+
+/**
+ * GET /api/government-schemes/:id/recommendations
+ *
+ * Returns top 5 related schemes based on similarity matching.
+ */
+schemesRouter.get('/:id/recommendations', schemesController.getRelatedSchemes);
 
 /**
  * GET /api/government-schemes/:id

@@ -14,10 +14,12 @@ import { WeatherModule } from '../services/modules/weather.module';
 import { GovernmentSchemesModule } from '../services/modules/governmentSchemes.module';
 import { MarketPredictionModule } from '../services/modules/marketPrediction.module';
 import { SoilAnalysisModule } from '../services/modules/soilAnalysis.module';
+import { EligibilityExplanationModule } from '../services/modules/eligibilityExplanation.module';
 import { logger } from '../utils/logger';
 
 export function registerAllModules() {
   moduleRegistryService.register(new CropExplanationModule());  // Priority 1
+  moduleRegistryService.register(new EligibilityExplanationModule()); // Priority 3
   moduleRegistryService.register(new StaticKnowledgeModule());  // Priority 2
   moduleRegistryService.register(new WebsiteKnowledgeModule()); // Priority 3
   moduleRegistryService.register(new WeatherModule());          // Priority 4

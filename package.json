@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:assistant\"",
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\" \"npm run dev:assistant\" \"npm run dev:schemes\"",
     "dev:frontend": "vite",
     "dev:backend": "npm run dev --prefix backend/crop-prediction",
     "dev:assistant": "npm run dev --prefix backend/agri-assistant",
+    "dev:schemes": "npm run dev --prefix backend/government-schemes",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
