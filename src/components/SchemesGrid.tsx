@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Landmark, ArrowRight, Loader2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const tabs = [
   "All Schemes", 
@@ -122,9 +123,11 @@ export function SchemesGrid() {
         </div>
       )}
 
-      <button className="mt-4 w-full py-5 rounded-2xl border border-gray-200 bg-white text-gray-900 font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors shadow-sm">
-        View All Schemes <ArrowRight className="w-5 h-5" />
-      </button>
+      <Link to="/schemes/all">
+        <button className="mt-4 w-full py-5 rounded-2xl border border-gray-200 bg-white text-gray-900 font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-colors shadow-sm">
+          View All Schemes <ArrowRight className="w-5 h-5" />
+        </button>
+      </Link>
 
     </div>
   );

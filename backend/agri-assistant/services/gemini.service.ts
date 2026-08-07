@@ -165,7 +165,7 @@ ${this.cropProfiles}${contextSection}`;
 
         const responseText = result.response.text();
         const updatedHistory = await chat.getHistory();
-        conversationService.updateHistory(conversationId, updatedHistory);
+        conversationService.updateHistory(conversationId, updatedHistory as any);
 
         logger.info('[Gemini] Response received successfully.');
 

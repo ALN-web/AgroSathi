@@ -4,6 +4,11 @@
     "name": "PM-KISAN Samman Nidhi",
     "shortDescription": "Provides direct income support of ₹6,000 per year to eligible farmer families in three equal installments of ₹2,000 each.",
     "fullDescription": "The Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a Central Sector scheme that provides income support to all landholding farmers' families in the country to supplement their financial needs for procuring various inputs related to agriculture as well as domestic needs. The amount is directly transferred to the bank accounts of the beneficiaries.",
+    "eligibilityCriteria": {
+      "landOwnership": ["Owned"],
+      "farmerType": ["Individual"],
+      "cropCategories": ["All Crops"]
+    },
     "schemeType": ["Financial Support", "Central Scheme"],
     "benefits": [
       "₹6,000 per year direct income support",
@@ -37,6 +42,11 @@
     "name": "Pradhan Mantri Fasal Bima Yojana",
     "shortDescription": "Crop insurance scheme protecting farmers against crop loss due to natural calamities, pests, and diseases at very low premium rates.",
     "fullDescription": "PMFBY provides comprehensive risk coverage against crop loss/damage due to prevented sowing, mid-season adversities, post-harvest losses, localized calamities, and natural calamities. Premium rates are very low — 1.5–2% of sum insured for Rabi crops, 2% for Kharif food and oilseed crops, and 5% for annual commercial/horticultural crops.",
+    "eligibilityCriteria": {
+      "farmerType": ["Individual", "Tenant"],
+      "cropCategories": ["Kharif", "Rabi", "Commercial", "Horticultural", "All Crops"],
+      "landOwnership": ["Owned", "Leased", "Tenant"]
+    },
     "schemeType": ["Insurance", "Central Scheme"],
     "benefits": [
       "Coverage against crop loss due to natural calamities",
@@ -69,6 +79,11 @@
     "name": "Pradhan Mantri Krishi Sinchayee Yojana",
     "shortDescription": "Supports efficient irrigation systems and promotes water conservation through micro-irrigation technologies like drip and sprinkler irrigation.",
     "fullDescription": "PMKSY aims to achieve convergence of investments in irrigation at the field level, expand cultivable area under assured irrigation (Har Khet Ko Pani), improve on-farm water use efficiency to reduce wastage, and enhance the adoption of precision-irrigation and other water saving technologies (More Crop Per Drop).",
+    "eligibilityCriteria": {
+      "farmerType": ["Individual", "FPO", "SHG"],
+      "landOwnership": ["Owned", "Leased"],
+      "cropCategories": ["All Crops"]
+    },
     "schemeType": ["Irrigation", "Central Scheme"],
     "benefits": [
       "55% subsidy for small/marginal farmers on drip & sprinkler systems",
@@ -102,6 +117,9 @@
     "name": "Soil Health Card Scheme",
     "shortDescription": "Provides soil testing reports and fertilizer recommendations to farmers for improving crop productivity and reducing input costs.",
     "fullDescription": "The Soil Health Card Scheme assists State Governments to issue Soil Health Cards to all farmers in the country. The card shows soil health status and carries crop-wise recommendations for nutrients and fertilizers required for improving soil health and its fertility. Soil testing is done every 2 years.",
+    "eligibilityCriteria": {
+      "cropCategories": ["All Crops"]
+    },
     "schemeType": ["Soil Health", "Technology", "Central Scheme"],
     "benefits": [
       "Free soil testing report",
@@ -131,6 +149,12 @@
     "name": "Kisan Credit Card",
     "shortDescription": "Offers affordable credit facilities to farmers for agriculture and allied activities at concessional interest rates.",
     "fullDescription": "The Kisan Credit Card (KCC) scheme provides short-term credit requirements of farmers for cultivation of crops, post-harvest expenses, produce marketing, maintenance of farm assets, and allied activities. The scheme offers interest subvention of 2% and an additional 3% incentive for prompt repayment, effectively reducing the interest rate to 4% per annum.",
+    "eligibilityCriteria": {
+      "minAge": 18,
+      "farmerType": ["Individual", "Tenant", "SHG"],
+      "landOwnership": ["Owned", "Leased", "Tenant"],
+      "cropCategories": ["All Crops", "Animal Husbandry", "Fisheries"]
+    },
     "schemeType": ["Financial Support", "Credit Support", "Central Scheme"],
     "benefits": [
       "Revolving credit up to ₹3 lakh at 4% p.a. (with incentives)",
@@ -164,6 +188,10 @@
     "name": "National Agriculture Market (e-NAM)",
     "shortDescription": "Digital marketplace connecting farmers with buyers across India for transparent pricing and better market access.",
     "fullDescription": "e-NAM is a pan-India electronic trading portal that networks the existing APMC mandis to create a unified national market for agricultural commodities. It provides a single window service for all APMC related information and services, including commodity arrivals & prices, buy & sell trade offers, and trade-related information services.",
+    "eligibilityCriteria": {
+      "farmerType": ["Individual", "FPO"],
+      "cropCategories": ["All Crops"]
+    },
     "schemeType": ["Market Support", "Technology", "Central Scheme"],
     "benefits": [
       "Online price discovery mechanism",
@@ -196,6 +224,10 @@
     "name": "Paramparagat Krishi Vikas Yojana",
     "shortDescription": "Promotes organic farming through adoption of organic village by cluster approach and PGS certification.",
     "fullDescription": "PKVY aims at supporting and promoting organic farming and thereby improving soil health. Cluster of farmers are adopted with 50 or more farmers forming groups of 50 acres. All connected farmers of the group will be trained in the third year of implementation. ₹50,000 per hectare is provided over 3 years as financial assistance.",
+    "eligibilityCriteria": {
+      "farmerType": ["Individual", "SHG", "FPO"],
+      "cropCategories": ["All Crops"]
+    },
     "schemeType": ["Organic Farming", "Central Scheme"],
     "benefits": [
       "₹50,000/ha over 3 years for inputs",
@@ -227,6 +259,10 @@
     "name": "Agriculture Infrastructure Fund",
     "shortDescription": "Provides medium-long term debt financing to build post-harvest management infrastructure and community farming assets.",
     "fullDescription": "AIF provides medium-long term debt financing facility for investment in viable projects for post-harvest management infrastructure and community farming assets through interest subvention and financial support. Projects eligible include primary processing centres, cold chains, warehouses, silos, pack houses, sorting & grading units, and assaying units.",
+    "eligibilityCriteria": {
+      "farmerType": ["Individual", "FPO", "SHG"],
+      "cropCategories": ["All Crops"]
+    },
     "schemeType": ["Financial Support", "Infrastructure", "Central Scheme"],
     "benefits": [
       "3% interest subvention on loans up to ₹2 crore",
@@ -260,6 +296,10 @@
     "name": "National Food Security Mission",
     "shortDescription": "Increases production of rice, wheat, pulses, coarse cereals, and commercial crops through area expansion and productivity enhancement.",
     "fullDescription": "NFSM aims at increasing production of Rice, Wheat, Pulses, Coarse Cereals, and Nutri Cereals through area expansion and productivity enhancement in a sustainable manner; restoring soil fertility and productivity at the individual farm level; and enhancing farm level economy to restore confidence amongst the farmers.",
+    "eligibilityCriteria": {
+      "farmerType": ["Individual"],
+      "cropCategories": ["Rice", "Wheat", "Pulses", "Coarse Cereals", "Commercial Crops", "All Crops"]
+    },
     "schemeType": ["Production", "Central Scheme"],
     "benefits": [
       "Seed subsidy for high-yielding varieties",
@@ -290,6 +330,11 @@
     "name": "Mahila Kisan Sashaktikaran Pariyojana",
     "shortDescription": "Empowers women farmers through capacity building, enabling them to participate in and benefit from agricultural and allied activities.",
     "fullDescription": "MKSP is a sub-component of DAY-NRLM that seeks to improve the current status of women in agriculture and to empower them for sustainable agriculture-based livelihoods. The programme focuses on women's collectives and supports sustainable agricultural practices, resource management, and leadership development.",
+    "eligibilityCriteria": {
+      "gender": ["Female"],
+      "farmerType": ["Individual", "SHG"],
+      "cropCategories": ["All Crops"]
+    },
     "schemeType": ["Women Empowerment", "Central Scheme"],
     "benefits": [
       "Capacity building and training",
@@ -320,6 +365,10 @@
     "name": "Digital Agriculture Mission",
     "shortDescription": "Builds a national digital agriculture ecosystem to support AI-based crop planning, real-time advisory, and smart irrigation.",
     "fullDescription": "The Digital Agriculture Mission (2021-2025) focuses on building digital infrastructure through the Agri Stack — Farmers Database, Geo-referenced Village Maps, and Unified Farmer Service Interface. It also supports projects using AI, ML, IoT and drones in agriculture.",
+    "eligibilityCriteria": {
+      "farmerType": ["Individual", "FPO", "SHG"],
+      "cropCategories": ["All Crops"]
+    },
     "schemeType": ["Technology", "Central Scheme"],
     "benefits": [
       "Access to digital advisory services",

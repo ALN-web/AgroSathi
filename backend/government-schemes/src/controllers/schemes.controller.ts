@@ -84,6 +84,17 @@ export const schemesController = {
         return;
       }
 
+      // Log history if user is authenticated (via mock header)
+      const userId = req.headers['x-user-id'] as string;
+      if (userId) {
+        // We import dynamically or top level. Better to do top level, but for now we'll require it here to avoid replacing imports.
+        // Wait, replace_file_content can't easily add top-level imports if I don't know the exact lines without replacing the whole file. 
+        // Let's just use require for historyService inside the block to be safe and clean, or I will replace the whole file content block.
+        // I'll require it locally to be safe.
+        const { historyService } = require('../services/history.service');
+        historyService.logView(userId.trim(), scheme.id);
+      }
+
       res.status(HTTP_STATUS.OK).json(buildSuccessResponse(scheme));
     } catch (err) {
       console.error('[SchemesController] Error in getSchemeById:', err);
@@ -121,6 +132,21 @@ export const schemesController = {
   },
 
   /**
+   * GET /api/government-schemes/statistics
+   *
+   * Returns live-computed hero statistics from the JSON data store.
+   */
+  getStatistics: (_req: Request, res: Response, next: NextFunction): void => {
+    try {
+      const stats = schemesService.getStatistics();
+      res.status(HTTP_STATUS.OK).json(buildSuccessResponse(stats));
+    } catch (err) {
+      console.error('[SchemesController] Error in getStatistics:', err);
+      next(err);
+    }
+  },
+
+  /**
    * GET /api/government-schemes/featured
    *
    * Returns only the featured, active schemes.
@@ -131,6 +157,54 @@ export const schemesController = {
       const featured = schemesService.getFeaturedSchemes();
       res.status(HTTP_STATUS.OK).json(buildSuccessResponse(featured));
     } catch (err) {
+      next(err);
+    }
+  },
+
+  /**
+   * GET /api/government-schemes/recommendations?crop=...
+   * 
+   * Returns scheme recommendations specifically tailored for a predicted crop.
+   */
+  getRecommendationsForCrop: (req: Request, res: Response, next: NextFunction): void => {
+    try {
+      const crop = req.query.crop as string;
+      if (!crop) {
+        res.status(HTTP_STATUS.BAD_REQUEST).json(
+          buildErrorResponse(ERROR_CODES.VALIDATION_ERROR, 'The "crop" query parameter is required.')
+        );
+        return;
+      }
+
+      const recommendations = schemesService.getRecommendationsForCrop(crop);
+      res.status(HTTP_STATUS.OK).json(buildSuccessResponse(recommendations));
+    } catch (err) {
+      console.error('[SchemesController] Error in getRecommendationsForCrop:', err);
+      next(err);
+    }
+  },
+
+  /**
+   * GET /api/government-schemes/:id/recommendations
+   *
+   * Returns top 5 related schemes based on similarity matching.
+   */
+  getRelatedSchemes: (req: Request, res: Response, next: NextFunction): void => {
+    try {
+      const { id } = req.params;
+      // Dynamically import to avoid top-level circular dependencies if any
+      const { recommendationService } = require('../services/recommendation.service');
+      
+      try {
+        const related = recommendationService.getRelatedSchemes(id);
+        res.status(HTTP_STATUS.OK).json(buildSuccessResponse(related));
+      } catch (err: any) {
+        res.status(HTTP_STATUS.NOT_FOUND).json(
+          buildErrorResponse(ERROR_CODES.SCHEME_NOT_FOUND, err.message)
+        );
+      }
+    } catch (err) {
+      console.error('[SchemesController] Error in getRelatedSchemes:', err);
       next(err);
     }
   },
