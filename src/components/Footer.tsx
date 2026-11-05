@@ -1,4 +1,4 @@
-import { Leaf, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -92,11 +92,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-center gap-4">
           <p className="text-gray-500 text-sm">{t('footer.rights')}</p>
-          <p className="text-gray-500 text-sm">
-            {t('footer.designedBy')} <span className="text-white font-semibold">Anjankumar LN</span>.
-          </p>
         </div>
       </div>
     </footer>

@@ -1,0 +1,38 @@
+{
+  "rice": {
+    "ideal_soil": "Clayey, loam, or clay-loam soils with good water retention.",
+    "ph_range": "5.0 - 6.5",
+    "temperature_range": "20°C - 35°C",
+    "water_requirements": "High (Needs standing water). Approx 1500-2500 mm rainfall.",
+    "growth_stages": ["Seedling", "Vegetative", "Reproductive", "Ripening"],
+    "common_diseases": ["Blast", "Brown Spot", "Sheath Blight"],
+    "tips": "Maintain proper flooding during early stages. Ensure good drainage before harvest."
+  },
+  "wheat": {
+    "ideal_soil": "Well-drained fertile loamy and clayey soils.",
+    "ph_range": "6.0 - 7.0",
+    "temperature_range": "10°C - 25°C",
+    "water_requirements": "Moderate. Approx 450-650 mm rainfall.",
+    "growth_stages": ["Tillering", "Stem Extension", "Heading", "Ripening"],
+    "common_diseases": ["Rust", "Smut", "Powdery Mildew"],
+    "tips": "Avoid waterlogging. Requires cool growing season and bright sunshine at ripening."
+  },
+  "maize": {
+    "ideal_soil": "Deep, rich, well-drained loamy soils.",
+    "ph_range": "5.5 - 7.5",
+    "temperature_range": "21°C - 27°C",
+    "water_requirements": "Moderate to High. Approx 500-800 mm rainfall.",
+    "growth_stages": ["Vegetative", "Silking", "Blister", "Dent", "Maturity"],
+    "common_diseases": ["Leaf Blight", "Stalk Rot", "Rust"],
+    "tips": "Sensitive to waterlogging. Ensure adequate nitrogen fertilizer."
+  },
+  "cotton": {
+    "ideal_soil": "Deep black soils (Regur) or alluvial soils.",
+    "ph_range": "5.8 - 8.0",
+    "temperature_range": "21°C - 30°C",
+    "water_requirements": "Moderate. Approx 500-1000 mm rainfall.",
+    "growth_stages": ["Seedling", "Vegetative", "Squaring", "Boll Development"],
+    "common_diseases": ["Bollworm", "Wilt", "Leaf Curl"],
+    "tips": "Needs 210 frost-free days. Avoid rain during boll bursting."
+  }
+}

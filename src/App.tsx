@@ -11,6 +11,8 @@ import WeatherPage from './pages/WeatherPage';
 import SoilPage from './pages/SoilPage';
 import ChatPage from './pages/ChatPage';
 import PricingPage from './pages/PricingPage';
+import AllSchemesPage from './pages/AllSchemesPage';
+import FloatingAssistant from './components/FloatingAssistant';
 
 function App() {
   return (
@@ -23,12 +25,14 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/schemes" element={<SchemesPage />} />
+        <Route path="/schemes/all" element={<AllSchemesPage />} />
         <Route path="/market" element={<MarketPricePage />} />
         <Route path="/weather" element={<WeatherPage />} />
         <Route path="/soil" element={<SoilPage />} />
         <Route path="/assistant" element={<ChatPage />} />
         <Route path="/pricing" element={<PricingPage />} />
       </Routes>
+      <FloatingAssistant />
     </Router>
   );
 }
